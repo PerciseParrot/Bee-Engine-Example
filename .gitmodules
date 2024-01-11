@@ -1,0 +1,3 @@
+[submodule "bee"]
+	path = bee
+	url = git@github.com:PerciseParrot/Bee-Engine.git
