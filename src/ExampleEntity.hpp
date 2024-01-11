@@ -2,6 +2,8 @@
 
 #include "Bee/Entity.hpp"
 
+#include <string>
+
 class ExampleEntity : public Entity
 {
 public:
@@ -10,6 +12,6 @@ public:
     virtual ~ExampleEntity();
 
 private:
+    std::string currentAnimation;
     Vector2f velocity;
-    float getHeading();
 };

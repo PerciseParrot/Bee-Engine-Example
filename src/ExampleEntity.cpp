@@ -17,68 +17,38 @@ void ExampleEntity::update()
 {
     velocity.x = 0;
     velocity.y = 0;
+    currentAnimation == "standing_down";
+
+    if (Input::isButtonDown(BUTTON_DOWN))
+    {
+        velocity.y = 1;
+        currentAnimation = "walking_down";
+    }
+    if (Input::isButtonDown(BUTTON_UP))
+    {
+        velocity.y = -1;
+        currentAnimation = "walking_up";
+    }
     if (Input::isButtonDown(BUTTON_RIGHT))
     {
-        setAnimation("walking_right");
+        velocity.x = 1;
+        currentAnimation = "walking_right";
     }
-    else if (Input::isButtonDown(BUTTON_LEFT))
+    if (Input::isButtonDown(BUTTON_LEFT))
     {
-        setAnimation("walking_left");
-    }
-    else if (Input::isButtonDown(BUTTON_DOWN))
-    {
-        setAnimation("walking_down");
-    }
-    else if (Input::isButtonDown(BUTTON_UP))
-    {
-        setAnimation("walking_up");
-    }
-    else
-    {
-        setAnimation("standing_down");
+        velocity.x = -1;
+        currentAnimation = "walking_left";
     }
 
-    float headingAngle = getHeading();
+    velocity.normalize();
 
-    if (Input::isButtonDown(BUTTON_UP) || Input::isButtonDown(BUTTON_LEFT) || Input::isButtonDown(BUTTON_DOWN) || Input::isButtonDown(BUTTON_RIGHT))
-    {
-        velocity.x = sinf(headingAngle * M_PI / 180) * 5;
-        velocity.y = cosf(headingAngle * M_PI / 180) * 5;
-    }
-
-    moveOffset(velocity * Bee::getDeltaTime());
+    setAnimation(currentAnimation);
+    moveOffset(velocity * 5 * Bee::getDeltaTime());
 
     for (Intersection i : getIntersections())
     {
         moveOffset(i.mtv);
     }
-}
-
-float ExampleEntity::getHeading()
-{
-    if (Input::isButtonDown(BUTTON_UP) && Input::isButtonDown(BUTTON_RIGHT))
-        return 135;
-    
-    if (Input::isButtonDown(BUTTON_UP) && Input::isButtonDown(BUTTON_LEFT))
-        return 225;
-
-    if (Input::isButtonDown(BUTTON_DOWN) && Input::isButtonDown(BUTTON_RIGHT))
-        return 45;
-
-    if (Input::isButtonDown(BUTTON_DOWN) && Input::isButtonDown(BUTTON_LEFT))
-        return 315;
-
-    if (Input::isButtonDown(BUTTON_UP))
-        return 180;
-
-    if (Input::isButtonDown(BUTTON_RIGHT))
-        return 90;
-
-    if (Input::isButtonDown(BUTTON_DOWN))
-        return 0;
-
-    if (Input::isButtonDown(BUTTON_LEFT))
-        return 270;
 }
 
 ExampleEntity::~ExampleEntity()

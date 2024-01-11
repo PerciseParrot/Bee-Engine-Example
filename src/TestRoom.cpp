@@ -24,8 +24,8 @@ TestRoom::TestRoom()
 
 void TestRoom::onLoad()
 {
-    //Audio::loadSound("test");
-    //Audio::playSound("test");
+    Audio::loadSound("test");
+    Audio::playSound("test");
     //Audio::loadMusic("muscle");
     //Audio::playMusic("muscle", 10);
 }
