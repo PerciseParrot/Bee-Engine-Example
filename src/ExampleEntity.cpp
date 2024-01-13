@@ -17,7 +17,7 @@ void ExampleEntity::update()
 {
     velocity.x = 0;
     velocity.y = 0;
-    currentAnimation == "standing_down";
+    currentAnimation = "standing_down";
 
     if (Input::isButtonDown(BUTTON_DOWN))
     {
