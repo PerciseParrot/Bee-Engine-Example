@@ -14,5 +14,5 @@ public:
     virtual ~TestRoom();
 
 private:
-    ExampleEntity* p_entity;
+    ExampleEntity* entity;
 };

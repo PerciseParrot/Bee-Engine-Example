@@ -19,7 +19,7 @@ TestRoom::TestRoom()
     //addEntity(new TestEntity(2.5, 0, "animation3", 135));
     //addEntity(new TestEntity(2.5, 1.5, "animation3", 180));
     //addEntity(new TestEntity(2.0f, 0, "animation1", 0));
-    addEntity(p_entity = new ExampleEntity);
+    addEntity(entity = new ExampleEntity);
 }
 
 void TestRoom::onLoad()
@@ -37,7 +37,7 @@ void TestRoom::onUnload()
 
 void TestRoom::update()
 {
-    Vector2f pos = p_entity->getPosition();
+    Vector2f pos = entity->getPosition();
     pos.x += 0.5f;
     pos.y += 0.5f;
     Renderer::setCameraPosition(pos);

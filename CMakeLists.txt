@@ -20,7 +20,7 @@ add_executable(${PROJECT_NAME}
 add_subdirectory(bee)
 add_dependencies(${PROJECT_NAME} bee)
 
-set(BEE_VENDORED ON)
+set(BEE_VENDORED OFF)
 
 target_link_libraries(${PROJECT_NAME} 
     PUBLIC bee
