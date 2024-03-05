@@ -5,6 +5,7 @@
 #include "Bee/Bee.hpp"
 #include "Bee/Entity.hpp"
 #include "Bee/Input.hpp"
+#include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/Graphics/Renderer.hpp"
 #include "Bee/World/World.hpp"
 
@@ -20,6 +21,10 @@ TestRoom::TestRoom()
     //addEntity(new TestEntity(2.5, 1.5, "animation3", 180));
     //addEntity(new TestEntity(2.0f, 0, "animation1", 0));
     addEntity(entity = new ExampleEntity);
+    addHUDObject(testHUD = new HUDObject);
+    testHUD->loadSpriteSheet("saul");
+    //testHUD->setAnimation("animation1");
+    testHUD->setScale(256, 256);
 }
 
 void TestRoom::onLoad()
@@ -32,7 +37,7 @@ void TestRoom::onLoad()
 
 void TestRoom::onUnload()
 {
-
+    Audio::stopMusic();
 }
 
 void TestRoom::update()
@@ -50,5 +55,6 @@ void TestRoom::update()
 
 TestRoom::~TestRoom()
 {
-    
+    delete entity;
+    delete testHUD;
 }

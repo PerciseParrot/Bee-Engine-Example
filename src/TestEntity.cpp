@@ -9,8 +9,9 @@ TestEntity::TestEntity(float x, float y, std::string animation, float rotation)
 {
     setPosition(x, y);
     setRotation(rotation);
-    loadSpriteSheet("TestSprite");
-    setAnimation(animation);
+    loadSpriteSheet("saul");
+    //setAnimation(animation);
+    setName("saul");
 }
 
 void TestEntity::update()

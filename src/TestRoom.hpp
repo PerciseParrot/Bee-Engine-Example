@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/World/World.hpp"
 
 #include "ExampleEntity.hpp"
@@ -15,4 +16,5 @@ public:
 
 private:
     ExampleEntity* entity;
+    HUDObject* testHUD;
 };
