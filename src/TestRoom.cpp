@@ -22,9 +22,9 @@ TestRoom::TestRoom()
     //addEntity(new TestEntity(2.0f, 0, "animation1", 0));
     addEntity(entity = new ExampleEntity);
     addHUDObject(testHUD = new HUDObject);
-    testHUD->loadSpriteSheet("saul");
-    //testHUD->setAnimation("animation1");
-    testHUD->setScale(256, 256);
+    testHUD->setFont("1529", 100);
+    testHUD->setScale(512, 256);
+    testHUD->setText("Luke stinkt", 255, 255, 255, 255);
 }
 
 void TestRoom::onLoad()
