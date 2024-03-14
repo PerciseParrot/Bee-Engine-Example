@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[])
 {
-    Bee::init(1920, 1080);
+    Bee::init(1280, 720);
     Bee::setWorld(new TestRoom);
     Bee::run();
     Bee::cleanUp();

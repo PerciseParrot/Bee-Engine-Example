@@ -22,9 +22,13 @@ TestRoom::TestRoom()
     //addEntity(new TestEntity(2.0f, 0, "animation1", 0));
     addEntity(entity = new ExampleEntity);
     addHUDObject(testHUD = new HUDObject);
-    testHUD->setFont("1529", 100);
-    testHUD->setScale(512, 256);
-    testHUD->setText("Luke stinkt", 255, 255, 255, 255);
+    testHUD->setFont("comic", 100);
+    testHUD->setText("ABC\n 123", 255, 255, 255, 255);
+    addHUDObject(textHUD = new HUDObject);
+    textHUD->setFont("1529", 100);
+    textHUD->setText("1235146", 255, 255, 255, 255);
+    Vector2i textSize = textHUD->getSize();
+    textHUD->setPosition(1280 - textSize.x, 0);
 }
 
 void TestRoom::onLoad()
