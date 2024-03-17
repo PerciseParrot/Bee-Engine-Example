@@ -17,10 +17,10 @@ add_executable(${PROJECT_NAME}
     src/TestRoom.cpp
 )
 
+set(BEE_VENDORED OFF)
+
 add_subdirectory(bee)
 add_dependencies(${PROJECT_NAME} bee)
-
-set(BEE_VENDORED OFF)
 
 target_link_libraries(${PROJECT_NAME} 
     PUBLIC bee

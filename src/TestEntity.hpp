@@ -9,7 +9,7 @@
 class TestEntity : public Entity
 {
 public:
-    TestEntity(float x, float y, std::string animation, float rotation);
+    TestEntity(float x, float y, float rotation);
     virtual void update();
     virtual ~TestEntity();
 };

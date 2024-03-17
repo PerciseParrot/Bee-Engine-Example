@@ -15,20 +15,15 @@
 TestRoom::TestRoom()
 {
     loadTilemap("Farm");
-    //addEntity(new TestEntity(3, 1, "animation1", 45));
-    //addEntity(new TestEntity(1, 0, "animation2", 90));
-    //addEntity(new TestEntity(2.5, 0, "animation3", 135));
-    //addEntity(new TestEntity(2.5, 1.5, "animation3", 180));
-    //addEntity(new TestEntity(2.0f, 0, "animation1", 0));
+    addEntity(new TestEntity(14.5f, 8.0f, 0));
+    addEntity(new TestEntity(14.5f, 9.5f, 0));
+    addEntity(new TestEntity(14.5f, 11.0f, 0));
+    addEntity(new TestEntity(14.5f, 12.5f, 0));
     addEntity(entity = new ExampleEntity);
-    addHUDObject(testHUD = new HUDObject);
-    testHUD->setFont("comic", 100);
-    testHUD->setText("ABC\n 123", 255, 255, 255, 255);
+
     addHUDObject(textHUD = new HUDObject);
-    textHUD->setFont("1529", 100);
-    textHUD->setText("1235146", 255, 255, 255, 255);
-    Vector2i textSize = textHUD->getSize();
-    textHUD->setPosition(1280 - textSize.x, 0);
+    textHUD->setFont("DTM_Mono", 100);
+    textHUD->setText("0", 255, 255, 255, 255);
 }
 
 void TestRoom::onLoad()
@@ -55,10 +50,14 @@ void TestRoom::update()
     {
         loadTilemap("Farm");
     }
+
+    textHUD->setText(std::to_string(Bee::getTime()), 255, 255, 255, 255);
+    Vector2i textSize = textHUD->getSize();
+    textHUD->setPosition(1280 - textSize.x, 0);
 }
 
 TestRoom::~TestRoom()
 {
     delete entity;
-    delete testHUD;
+    delete textHUD;
 }

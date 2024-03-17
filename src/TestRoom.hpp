@@ -16,6 +16,5 @@ public:
 
 private:
     ExampleEntity* entity;
-    HUDObject* testHUD;
     HUDObject* textHUD;
 };

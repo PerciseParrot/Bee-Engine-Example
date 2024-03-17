@@ -10,7 +10,7 @@ ExampleEntity::ExampleEntity()
 {
     loadSpriteSheet("Link");
     setPosition(14.5f, 1.5f);
-    setHitboxScale(0.5f, 0.5f);
+    setHitboxScale(0.75f, 0.75f);
 }
 
 void ExampleEntity::update()
@@ -47,7 +47,10 @@ void ExampleEntity::update()
 
     for (Intersection i : getIntersections())
     {
-        moveOffset(i.mtv);
+        if (i.worldObject)
+        {
+            moveOffset(i.mtv);
+        }
     }
 }
 
