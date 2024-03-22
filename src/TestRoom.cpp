@@ -2,9 +2,11 @@
 
 #include <iostream>
 
+#include "Bee/Audio.hpp"
 #include "Bee/Bee.hpp"
 #include "Bee/Entity.hpp"
-#include "Bee/Input.hpp"
+#include "Bee/Input/Controller.hpp"
+#include "Bee/Input/Keyboard.hpp"
 #include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/Graphics/Renderer.hpp"
 #include "Bee/World/World.hpp"
@@ -28,6 +30,7 @@ TestRoom::TestRoom()
 
 void TestRoom::onLoad()
 {
+    Audio::loadSound("boom");
     Audio::loadSound("test");
     Audio::playSound("test");
     //Audio::loadMusic("muscle");
@@ -46,9 +49,15 @@ void TestRoom::update()
     pos.y += 0.5f;
     Renderer::setCameraPosition(pos);
 
-    if (Input::isButtonPressed(BUTTON_INTERACT))
+    if (Keyboard::isKeyPressed(Key::b))
     {
         loadTilemap("Farm");
+    }
+
+    if (Keyboard::isKeyPressed(Key::null) || Controller::isButtonPressed(ControllerButton::a))
+    {
+        Vector2f stick = Controller::getLeftStick();
+        Audio::playSound("boom");
     }
 
     textHUD->setText(std::to_string(Bee::getTime()), 255, 255, 255, 255);

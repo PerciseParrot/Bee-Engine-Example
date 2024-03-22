@@ -4,7 +4,9 @@
 #include <iostream>
 
 #include "Bee/Bee.hpp"
-#include "Bee/Input.hpp"
+#include "Bee/Log.hpp"
+#include "Bee/Input/Controller.hpp"
+#include "Bee/Input/Keyboard.hpp"
 
 ExampleEntity::ExampleEntity()
 {
@@ -19,28 +21,33 @@ void ExampleEntity::update()
     velocity.y = 0;
     currentAnimation = "standing_down";
 
-    if (Input::isButtonDown(BUTTON_DOWN))
+    if (Keyboard::isKeyDown(Key::s) || Controller::isButtonDown(ControllerButton::down))
     {
         velocity.y = 1;
         currentAnimation = "walking_down";
     }
-    if (Input::isButtonDown(BUTTON_UP))
+    if (Keyboard::isKeyDown(Key::w) || Controller::isButtonDown(ControllerButton::up))
     {
         velocity.y = -1;
         currentAnimation = "walking_up";
     }
-    if (Input::isButtonDown(BUTTON_RIGHT))
+    if (Keyboard::isKeyDown(Key::d) || Controller::isButtonDown(ControllerButton::right))
     {
         velocity.x = 1;
         currentAnimation = "walking_right";
     }
-    if (Input::isButtonDown(BUTTON_LEFT))
+    if (Keyboard::isKeyDown(Key::a) || Controller::isButtonDown(ControllerButton::left))
     {
         velocity.x = -1;
         currentAnimation = "walking_left";
     }
 
     velocity.normalize();
+
+    Vector2f stick = Controller::getLeftStick();
+
+    if (stick.getLength() > 0.01f)
+        velocity = stick;
 
     setAnimation(currentAnimation);
     moveOffset(velocity * 5 * Bee::getDeltaTime());
