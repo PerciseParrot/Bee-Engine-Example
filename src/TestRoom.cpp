@@ -16,7 +16,7 @@
 
 TestRoom::TestRoom()
 {
-    loadTilemap("Farm");
+    loadTilemap("Large");
     addEntity(new TestEntity(14.5f, 8.0f, 0));
     addEntity(new TestEntity(14.5f, 9.5f, 0));
     addEntity(new TestEntity(14.5f, 11.0f, 0));
@@ -60,7 +60,7 @@ void TestRoom::update()
         Audio::playSound("boom");
     }
 
-    textHUD->setText(std::to_string(Bee::getTime()), 255, 255, 255, 255);
+    textHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
     Vector2i textSize = textHUD->getSize();
     textHUD->setPosition(1280 - textSize.x, 0);
 }
