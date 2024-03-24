@@ -63,5 +63,5 @@ void ExampleEntity::update()
 
 ExampleEntity::~ExampleEntity()
 {
-
+    
 }

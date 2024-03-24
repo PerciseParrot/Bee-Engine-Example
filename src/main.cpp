@@ -4,7 +4,7 @@
 
 #include "TestRoom.hpp"
 
-int main(int argc, char* argv[])
+int main()
 {
     Bee::init(1280, 720);
     Bee::setWorld(new TestRoom);

@@ -45,24 +45,30 @@ void TestRoom::onUnload()
 void TestRoom::update()
 {
     Vector2f pos = entity->getPosition();
-    pos.x += 0.5f;
-    pos.y += 0.5f;
     Renderer::setCameraPosition(pos);
 
-    if (Keyboard::isKeyPressed(Key::b))
+    if (Keyboard::isKeyPressed(Key::b) || Controller::isButtonPressed(ControllerButton::left))
     {
         loadTilemap("Farm");
     }
 
+    if (Keyboard::isKeyPressed(Key::n) || Controller::isButtonPressed(ControllerButton::up))
+    {
+        loadTilemap("Large");
+    }
+
+    if (Keyboard::isKeyPressed(Key::m) || Controller::isButtonPressed(ControllerButton::right))
+    {
+        loadTilemap("TestWorld");
+    }
+
     if (Keyboard::isKeyPressed(Key::null) || Controller::isButtonPressed(ControllerButton::a))
     {
-        Vector2f stick = Controller::getLeftStick();
         Audio::playSound("boom");
     }
 
     textHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
-    Vector2i textSize = textHUD->getSize();
-    textHUD->setPosition(1280 - textSize.x, 0);
+    textHUD->setPosition(Renderer::getScreenSize().x - textHUD->getSize().x, 0);
 }
 
 TestRoom::~TestRoom()
