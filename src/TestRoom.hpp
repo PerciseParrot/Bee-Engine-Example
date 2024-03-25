@@ -15,6 +15,8 @@ public:
     virtual ~TestRoom();
 
 private:
-    ExampleEntity* entity;
-    HUDObject* textHUD;
+    ExampleEntity* player;
+    HUDObject* frameTimeHUD;
+    HUDObject* xPosHUD;
+    HUDObject* yPosHUD;
 };

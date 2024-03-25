@@ -21,11 +21,21 @@ TestRoom::TestRoom()
     addEntity(new TestEntity(14.5f, 9.5f, 0));
     addEntity(new TestEntity(14.5f, 11.0f, 0));
     addEntity(new TestEntity(14.5f, 12.5f, 0));
-    addEntity(entity = new ExampleEntity);
+    addEntity(player = new ExampleEntity);
 
-    addHUDObject(textHUD = new HUDObject);
-    textHUD->setFont("DTM_Mono", 100);
-    textHUD->setText("0", 255, 255, 255, 255);
+    addHUDObject(frameTimeHUD = new HUDObject);
+    frameTimeHUD->setFont("DTM_Mono", 50);
+    frameTimeHUD->setText("0", 255, 255, 255, 255);
+
+    addHUDObject(xPosHUD = new HUDObject);
+    xPosHUD->setFont("DTM_Mono", 50);
+    xPosHUD->setText("X: 0", 255, 255, 255, 255);
+    xPosHUD->setPosition(0, 0);
+
+    addHUDObject(yPosHUD = new HUDObject);
+    yPosHUD->setFont("DTM_Mono", 50);
+    yPosHUD->setText("Y: 0", 255, 255, 255, 255);
+    yPosHUD->setPosition(0, xPosHUD->getSize().y);
 }
 
 void TestRoom::onLoad()
@@ -44,35 +54,40 @@ void TestRoom::onUnload()
 
 void TestRoom::update()
 {
-    Vector2f pos = entity->getPosition();
-    Renderer::setCameraPosition(pos);
+    Vector2f playerPosition = player->getPosition();
+    Renderer::setCameraPosition(playerPosition);
 
-    if (Keyboard::isKeyPressed(Key::b) || Controller::isButtonPressed(ControllerButton::left))
+    if (Keyboard::isKeyPressed(Key::b) || (Controller::isButtonPressed(ControllerButton::left) && Controller::isButtonDown(ControllerButton::start)))
     {
         loadTilemap("Farm");
     }
 
-    if (Keyboard::isKeyPressed(Key::n) || Controller::isButtonPressed(ControllerButton::up))
+    if (Keyboard::isKeyPressed(Key::n) || (Controller::isButtonPressed(ControllerButton::up) && Controller::isButtonDown(ControllerButton::start)))
     {
         loadTilemap("Large");
     }
 
-    if (Keyboard::isKeyPressed(Key::m) || Controller::isButtonPressed(ControllerButton::right))
+    if (Keyboard::isKeyPressed(Key::m) || (Controller::isButtonPressed(ControllerButton::right) && Controller::isButtonDown(ControllerButton::start)))
     {
         loadTilemap("TestWorld");
     }
 
-    if (Keyboard::isKeyPressed(Key::null) || Controller::isButtonPressed(ControllerButton::a))
+    if (Keyboard::isKeyPressed(Key::space) || Controller::isButtonPressed(ControllerButton::a))
     {
         Audio::playSound("boom");
     }
 
-    textHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
-    textHUD->setPosition(Renderer::getScreenSize().x - textHUD->getSize().x, 0);
+    frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
+    frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
+
+    xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
+    yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
 }
 
 TestRoom::~TestRoom()
 {
-    delete entity;
-    delete textHUD;
+    delete player;
+    delete frameTimeHUD;
+    delete xPosHUD;
+    delete yPosHUD;
 }
