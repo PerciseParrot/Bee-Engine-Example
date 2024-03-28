@@ -16,7 +16,7 @@
 
 TestRoom::TestRoom()
 {
-    loadTilemap("Large");
+    loadTilemap("Farm");
     addEntity(new TestEntity(14.5f, 8.0f, 0));
     addEntity(new TestEntity(14.5f, 9.5f, 0));
     addEntity(new TestEntity(14.5f, 11.0f, 0));
@@ -25,7 +25,6 @@ TestRoom::TestRoom()
 
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
-    frameTimeHUD->setText("0", 255, 255, 255, 255);
 
     addHUDObject(xPosHUD = new HUDObject);
     xPosHUD->setFont("DTM_Mono", 50);
@@ -36,6 +35,10 @@ TestRoom::TestRoom()
     yPosHUD->setFont("DTM_Mono", 50);
     yPosHUD->setText("Y: 0", 255, 255, 255, 255);
     yPosHUD->setPosition(0, xPosHUD->getSize().y);
+
+    addHUDObject(tileDataHUD = new HUDObject);
+    tileDataHUD->setFont("DTM_Mono", 50);
+    tileDataHUD->setPosition(0, xPosHUD->getSize().y + xPosHUD->getSize().y);
 }
 
 void TestRoom::onLoad()
@@ -82,12 +85,15 @@ void TestRoom::update()
 
     xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
     yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
+
+    tileDataHUD->setText(getTileData(player->getPosition(), "type"), 255, 255, 255, 255);
 }
 
 TestRoom::~TestRoom()
 {
     delete player;
     delete frameTimeHUD;
+    delete tileDataHUD;
     delete xPosHUD;
     delete yPosHUD;
 }

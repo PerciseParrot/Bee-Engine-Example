@@ -42,7 +42,11 @@
  </tile>
  <tile id="226" type="Erde"/>
  <tile id="227" type="Erde"/>
- <tile id="231" type="Kies"/>
+ <tile id="231" type="Kies">
+  <properties>
+   <property name="data" value="gravel"/>
+  </properties>
+ </tile>
  <tile id="233">
   <animation>
    <frame tileid="233" duration="1250"/>
@@ -67,6 +71,7 @@
    <frame tileid="1315" duration="1250"/>
   </animation>
  </tile>
+ <tile id="623" type="stone"/>
  <tile id="1293">
   <animation>
    <frame tileid="1293" duration="1250"/>

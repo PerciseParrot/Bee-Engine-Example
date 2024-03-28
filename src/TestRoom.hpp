@@ -19,4 +19,5 @@ private:
     HUDObject* frameTimeHUD;
     HUDObject* xPosHUD;
     HUDObject* yPosHUD;
+    HUDObject* tileDataHUD;
 };
