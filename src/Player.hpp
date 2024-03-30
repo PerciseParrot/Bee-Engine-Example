@@ -4,12 +4,12 @@
 
 #include <string>
 
-class ExampleEntity : public Entity
+class Player : public Entity
 {
 public:
-    ExampleEntity();
+    Player();
     virtual void update();
-    virtual ~ExampleEntity();
+    virtual ~Player();
 
 private:
     std::string currentAnimation;

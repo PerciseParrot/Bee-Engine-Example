@@ -1,4 +1,4 @@
-#include "ExampleEntity.hpp"
+#include "Player.hpp"
 
 #include <cmath>
 #include <iostream>
@@ -8,14 +8,14 @@
 #include "Bee/Input/Controller.hpp"
 #include "Bee/Input/Keyboard.hpp"
 
-ExampleEntity::ExampleEntity()
+Player::Player()
 {
     loadSpriteSheet("Link");
     setPosition(14.5f, 1.5f);
     setHitboxScale(0.75f, 0.75f);
 }
 
-void ExampleEntity::update()
+void Player::update()
 {
     velocity.x = 0;
     velocity.y = 0;
@@ -61,7 +61,7 @@ void ExampleEntity::update()
     }
 }
 
-ExampleEntity::~ExampleEntity()
+Player::~Player()
 {
     
 }

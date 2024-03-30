@@ -3,7 +3,7 @@
 #include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/World/World.hpp"
 
-#include "ExampleEntity.hpp"
+#include "Player.hpp"
 
 class TestRoom : public World
 {
@@ -15,7 +15,7 @@ public:
     virtual ~TestRoom();
 
 private:
-    ExampleEntity* player;
+    Player* player;
     HUDObject* frameTimeHUD;
     HUDObject* xPosHUD;
     HUDObject* yPosHUD;

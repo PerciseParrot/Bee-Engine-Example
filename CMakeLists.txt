@@ -11,8 +11,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR})
 file(COPY assets DESTINATION ${OUTPUT_DIR})
 
 add_executable(${PROJECT_NAME}
-    src/ExampleEntity.cpp
     src/main.cpp
+    src/Player.cpp
     src/TestEntity.cpp
     src/TestRoom.cpp
 )

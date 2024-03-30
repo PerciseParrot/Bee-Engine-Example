@@ -5,13 +5,14 @@
 #include "Bee/Audio.hpp"
 #include "Bee/Bee.hpp"
 #include "Bee/Entity.hpp"
+#include "Bee/Log.hpp"
 #include "Bee/Input/Controller.hpp"
 #include "Bee/Input/Keyboard.hpp"
 #include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/Graphics/Renderer.hpp"
 #include "Bee/World/World.hpp"
 
-#include "ExampleEntity.hpp"
+#include "Player.hpp"
 #include "TestEntity.hpp"
 
 TestRoom::TestRoom()
@@ -21,7 +22,8 @@ TestRoom::TestRoom()
     addEntity(new TestEntity(14.5f, 9.5f, 0));
     addEntity(new TestEntity(14.5f, 11.0f, 0));
     addEntity(new TestEntity(14.5f, 12.5f, 0));
-    addEntity(player = new ExampleEntity);
+    addEntity(new TestEntity(16.5f, 12.5f, 45));
+    addEntity(player = new Player);
 
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
@@ -43,7 +45,7 @@ TestRoom::TestRoom()
 
 void TestRoom::onLoad()
 {
-    Audio::loadSound("boom");
+        Audio::loadSound("boom");
     Audio::loadSound("test");
     Audio::playSound("test");
     //Audio::loadMusic("muscle");
@@ -91,9 +93,6 @@ void TestRoom::update()
 
 TestRoom::~TestRoom()
 {
-    delete player;
-    delete frameTimeHUD;
-    delete tileDataHUD;
-    delete xPosHUD;
-    delete yPosHUD;
+    deleteAllEntities();
+    deleteAllHUDObjects();
 }

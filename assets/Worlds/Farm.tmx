@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="55">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="56">
  <tileset firstgid="1" source="Tilesets/StardewValleyTiles.tsx"/>
  <layer id="1" name="Kachelebene 1" width="30" height="20">
   <data encoding="csv">
@@ -99,8 +99,8 @@
  </layer>
  <objectgroup id="7" name="Objektebene 2">
   <object id="16" name="Fichte" type="Baum" x="272" y="168" width="16" height="24"/>
-  <object id="17" name="Fichte" type="Baum" x="320" y="192" width="16" height="16"/>
-  <object id="19" name="Ahorn" type="Baum" x="304" y="304" width="16" height="16"/>
+  <object id="17" name="Fichte" type="Baum" x="320" y="184" width="16" height="24"/>
+  <object id="19" name="Ahorn" type="Baum" x="304" y="296" width="16" height="24"/>
   <object id="28" x="0" y="0" width="224" height="96"/>
   <object id="29" x="224" y="0" width="16" height="16"/>
   <object id="42" x="144" y="96">
@@ -112,11 +112,12 @@
   <object id="47" x="112" y="208">
    <polygon points="0,0 -16,0 -32,-16 16,-16"/>
   </object>
-  <object id="49" x="144" y="231.818" width="16" height="24.1818"/>
-  <object id="50" name="Fichte" type="Baum" x="64" y="304" width="16" height="16"/>
+  <object id="49" type="Baumstumpf" x="144" y="231.818" width="16" height="24.1818"/>
+  <object id="50" name="Fichte" type="Baum" x="64" y="296" width="16" height="24"/>
   <object id="51" x="336" y="224" width="112" height="48"/>
   <object id="52" x="368" y="208" width="80" height="16"/>
   <object id="53" x="240" y="0" width="96" height="96"/>
   <object id="54" x="368" y="0" width="112" height="96"/>
+  <object id="55" name="Ahorn" type="Baum" x="432" y="104" width="16" height="24"/>
  </objectgroup>
 </map>
