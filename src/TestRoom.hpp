@@ -15,6 +15,7 @@ public:
     virtual ~TestRoom();
 
 private:
+    uint32_t lastHUDUpdateTime = 0;
     Player* player;
     HUDObject* frameTimeHUD;
     HUDObject* xPosHUD;

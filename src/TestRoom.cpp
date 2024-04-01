@@ -45,7 +45,7 @@ TestRoom::TestRoom()
 
 void TestRoom::onLoad()
 {
-        Audio::loadSound("boom");
+    Audio::loadSound("boom");
     Audio::loadSound("test");
     Audio::playSound("test");
     //Audio::loadMusic("muscle");
@@ -82,13 +82,17 @@ void TestRoom::update()
         Audio::playSound("boom");
     }
 
-    frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
-    frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
+    if (Bee::getTime() > lastHUDUpdateTime + 200)
+    {
+        lastHUDUpdateTime = Bee::getTime();
+        frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
+        frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
 
-    xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
-    yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
+        xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
+        yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
 
-    tileDataHUD->setText(getTileData(player->getPosition(), "type"), 255, 255, 255, 255);
+        tileDataHUD->setText(getTileData(player->getPosition(), "type"), 255, 255, 255, 255);
+    }
 }
 
 TestRoom::~TestRoom()
