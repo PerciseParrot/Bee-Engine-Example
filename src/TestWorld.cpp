@@ -1,4 +1,4 @@
-#include "TestRoom.hpp"
+#include "TestWorld.hpp"
 
 #include <iostream>
 
@@ -14,8 +14,9 @@
 
 #include "Player.hpp"
 #include "TestEntity.hpp"
+#include "TextEntity.hpp"
 
-TestRoom::TestRoom()
+TestWorld::TestWorld()
 {
     loadTilemap("Farm");
     addEntity(new TestEntity(14.5f, 8.0f, 0));
@@ -24,6 +25,13 @@ TestRoom::TestRoom()
     addEntity(new TestEntity(14.5f, 12.5f, 0));
     addEntity(new TestEntity(16.5f, 12.5f, 45));
     addEntity(player = new Player);
+
+    addEntity(textEntity = new TextEntity);
+    textEntity->setFont("DTM_Mono", 500);
+    textEntity->setPosition(14.5f, 16.0f);
+    textEntity->setText("Text\nEntity", 255, 255, 255, 255);
+    textEntity->setScale(2);
+    textEntity->setHitboxScale(2);
 
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
@@ -43,7 +51,7 @@ TestRoom::TestRoom()
     tileDataHUD->setPosition(0, xPosHUD->getSize().y + xPosHUD->getSize().y);
 }
 
-void TestRoom::onLoad()
+void TestWorld::onLoad()
 {
     Audio::loadSound("boom");
     Audio::loadSound("test");
@@ -52,12 +60,12 @@ void TestRoom::onLoad()
     //Audio::playMusic("muscle", 10);
 }
 
-void TestRoom::onUnload()
+void TestWorld::onUnload()
 {
     Audio::stopMusic();
 }
 
-void TestRoom::update()
+void TestWorld::update()
 {
     Vector2f playerPosition = player->getPosition();
     Renderer::setCameraPosition(playerPosition);
@@ -95,7 +103,7 @@ void TestRoom::update()
     }
 }
 
-TestRoom::~TestRoom()
+TestWorld::~TestWorld()
 {
     deleteAllEntities();
     deleteAllHUDObjects();
