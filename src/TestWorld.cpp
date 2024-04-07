@@ -8,6 +8,7 @@
 #include "Bee/Log.hpp"
 #include "Bee/Input/Controller.hpp"
 #include "Bee/Input/Keyboard.hpp"
+#include "Bee/Input/Mouse.hpp"
 #include "Bee/Graphics/HUDObject.hpp"
 #include "Bee/Graphics/Renderer.hpp"
 #include "Bee/World/World.hpp"
@@ -27,7 +28,7 @@ TestWorld::TestWorld()
     addEntity(player = new Player);
 
     addEntity(textEntity = new TextEntity);
-    textEntity->setFont("DTM_Mono", 500);
+    textEntity->setFont("DTM_Mono", 100);
     textEntity->setPosition(14.5f, 16.0f);
     textEntity->setText("Text\nEntity", 255, 255, 255, 255);
     textEntity->setScale(2);
@@ -92,6 +93,7 @@ void TestWorld::update()
 
     if (Bee::getTime() > lastHUDUpdateTime + 200)
     {
+        Vector2f mousePos = Mouse::getMouseWorldPosition();
         lastHUDUpdateTime = Bee::getTime();
         frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
         frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
@@ -99,7 +101,7 @@ void TestWorld::update()
         xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
         yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
 
-        tileDataHUD->setText(getTileData(player->getPosition(), "type"), 255, 255, 255, 255);
+        tileDataHUD->setText(getTileData(mousePos, "type"), 255, 255, 255, 255);
     }
 }
 
