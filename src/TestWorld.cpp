@@ -95,13 +95,20 @@ void TestWorld::update()
     {
         Vector2f mousePos = Mouse::getMouseWorldPosition();
         lastHUDUpdateTime = Bee::getTime();
-        frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
-        frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
 
         xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);
         yPosHUD->setText("Y: " + std::to_string(playerPosition.y), 255, 255, 255, 255);
 
         tileDataHUD->setText(getTileData(mousePos, "type"), 255, 255, 255, 255);
+        if (frameTimeHUD->isCursorOnMe())
+        {
+            frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 0, 0, 255);
+        }
+        else
+        {
+            frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
+        }
+        frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
     }
 }
 
