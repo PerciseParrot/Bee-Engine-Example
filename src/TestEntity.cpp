@@ -20,8 +20,3 @@ void TestEntity::update()
         moveOffset(i.mtv);
     }
 }
-
-TestEntity::~TestEntity()
-{
-
-}

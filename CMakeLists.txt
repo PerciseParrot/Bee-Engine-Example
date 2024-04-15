@@ -23,5 +23,9 @@ add_subdirectory(bee)
 add_dependencies(${PROJECT_NAME} bee)
 
 target_link_libraries(${PROJECT_NAME} 
-    PUBLIC bee
+    PRIVATE bee
+)
+
+target_include_directories(${PROJECT_NAME} 
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
