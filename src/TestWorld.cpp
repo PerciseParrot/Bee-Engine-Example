@@ -19,6 +19,11 @@
 
 TestWorld::TestWorld()
 {
+
+}
+
+void TestWorld::init()
+{
     loadTilemap("Farm");
     addEntity(new TestEntity(14.5f, 8.0f, 0));
     addEntity(new TestEntity(14.5f, 9.5f, 0));

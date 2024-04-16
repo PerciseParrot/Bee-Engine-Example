@@ -11,6 +11,7 @@ class TestWorld : public World
 {
 public:
     TestWorld();
+    virtual void init();
     virtual void onLoad();
     virtual void onUnload();
     virtual void update();
