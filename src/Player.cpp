@@ -10,7 +10,7 @@
 
 Player::Player()
 {
-    loadSpriteSheet("Link");
+    setSprite("Link");
     setName("Player");
     setPosition(14.5f, 1.5f);
     setHitboxScale(0.75f, 0.75f);

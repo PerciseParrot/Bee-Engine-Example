@@ -7,7 +7,7 @@ TestEntity::TestEntity(float x, float y, float rotation)
 {
     setPosition(x, y);
     setRotation(rotation);
-    loadSpriteSheet("saul");
+    setSprite("saul");
     setName("Saul");
     setHitboxScale(1.5f, 1.5f);
     setScale(1.5f, 1.5f);
