@@ -98,6 +98,11 @@ void TestWorld::update()
         Audio::playSound("boom");
     }
 
+    if (Keyboard::isKeyPressed(Key::escape))
+    {
+        Bee::stop();
+    }
+
     if (Bee::getTime() > lastHUDUpdateTime + 200)
     {
         Vector2f mousePos = Mouse::getMouseWorldPosition();
@@ -116,13 +121,6 @@ void TestWorld::update()
             frameTimeHUD->setText(std::to_string(Bee::getDeltaTime() * 1000) + "ms", 255, 255, 255, 255);
         }
         frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
-
-        float deltaTimeDifference = fabs(deltaTimeOld - Bee::getDeltaTime());
-
-        if (deltaTimeDifference > 0.0001)
-            Log::write("Delta Time spike %fms", deltaTimeDifference * 1000);
-
-        deltaTimeOld = Bee::getDeltaTime();
     }
 }
 

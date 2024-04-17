@@ -18,7 +18,6 @@ public:
     virtual ~TestWorld();
 
 private:
-    float deltaTimeOld = 0;
     uint32_t lastHUDUpdateTime = 0;
     TextEntity* textEntity;
     Player* player;

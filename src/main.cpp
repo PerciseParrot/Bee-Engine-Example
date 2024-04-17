@@ -11,6 +11,5 @@ int main()
     Renderer::setWindowIcon("./assets/icon.png");
     Bee::setWorld(new TestWorld);
     Bee::run();
-    Bee::cleanUp();
     return 0;
 }
