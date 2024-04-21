@@ -5,10 +5,15 @@
 
 #include "TestWorld.hpp"
 
+void init()
+{
+    Renderer::setWindowTitle("Example Game");
+    Renderer::setWindowIcon("./assets/icon.png");
+}
+
 int main()
 {
-    Bee::init(1280, 720);
-    Renderer::setWindowIcon("./assets/icon.png");
+    Bee::onInit(init);
     Bee::setWorld(new TestWorld);
     Bee::run();
     return 0;

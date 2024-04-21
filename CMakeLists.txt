@@ -17,15 +17,13 @@ add_executable(${PROJECT_NAME}
     src/TextEntity.cpp
 )
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-Wl,-rpath,./")
+
 set(BEE_VENDORED OFF)
 
 add_subdirectory(bee)
 add_dependencies(${PROJECT_NAME} bee)
 
-target_link_libraries(${PROJECT_NAME} 
-    PRIVATE bee
-)
-
-target_include_directories(${PROJECT_NAME} 
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE bee)
