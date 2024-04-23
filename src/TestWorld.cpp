@@ -35,7 +35,8 @@ void TestWorld::init()
     addEntity(player = new Player);
 
     addEntity(textEntity = new TextEntity);
-    textEntity->setFont("DTM_Mono", 150);
+    textEntity->setName("Text Entity");
+    textEntity->setFont("DTM_Mono", 200);
     textEntity->setPosition(14.5f, 16.0f);
     textEntity->setText("Text\nEntity", 255, 255, 255, 255);
     textEntity->setScale(2);
@@ -65,7 +66,11 @@ void TestWorld::onLoad()
     Audio::loadSound("test");
     Audio::playSound("test");
     //Audio::loadMusic("muscle");
-    //Audio::playMusic("muscle", 10);
+    //Audio::playMusic("muscle", 0);
+    for (Entity* entity : getAllEntities())
+    {
+        Log::write("%s: %p", entity->getName().c_str(), entity);
+    }
 }
 
 void TestWorld::onUnload()
@@ -103,6 +108,15 @@ void TestWorld::update()
         Bee::stop();
     }
 
+    if (Keyboard::isKeyDown(Key::a1))
+    {
+        viewportScale += 0.5f * Bee::getDeltaTime();
+    }
+    else if (Keyboard::isKeyDown(Key::a2))
+    {
+        viewportScale -= 0.5f * Bee::getDeltaTime();
+    }
+
     if (Bee::getTime() > lastHUDUpdateTime + 200)
     {
         Vector2f mousePos = Mouse::getMouseWorldPosition();
@@ -122,6 +136,8 @@ void TestWorld::update()
         }
         frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
     }
+
+    Renderer::setViewportSize(16 * viewportScale, 9 * viewportScale);
 }
 
 TestWorld::~TestWorld()

@@ -18,6 +18,7 @@ public:
     virtual ~TestWorld();
 
 private:
+    float viewportScale = 1.0f;
     uint32_t lastHUDUpdateTime = 0;
     TextEntity* textEntity;
     Player* player;
