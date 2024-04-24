@@ -2,8 +2,9 @@
 
 #include <Bee/World/World.hpp>
 
-namespace Globals
+namespace Global
 {
     extern World* farm;
     extern World* testWorld;
+    extern float viewportScale;
 };

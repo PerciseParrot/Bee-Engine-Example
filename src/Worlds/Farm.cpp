@@ -1,6 +1,10 @@
 #include "Farm.hpp"
 
+#include <Bee/Bee.hpp>
 #include <Bee/Graphics/Renderer.hpp>
+#include <Bee/Input/Keyboard.hpp>
+
+#include "Globals.hpp"
 
 void Farm::init()
 {
@@ -23,6 +27,17 @@ void Farm::update()
 {
     Vector2f playerPosition = player->getPosition();
     Renderer::setCameraPosition(playerPosition);
+
+    if (Keyboard::isKeyDown(Key::a1))
+    {
+        Global::viewportScale += 0.5f * Bee::getDeltaTime();
+    }
+    else if (Keyboard::isKeyDown(Key::a2))
+    {
+        Global::viewportScale -= 0.5f * Bee::getDeltaTime();
+    }
+
+    Renderer::setViewportSize(16 * Global::viewportScale, 9 * Global::viewportScale);
 }
 
 Farm::~Farm()

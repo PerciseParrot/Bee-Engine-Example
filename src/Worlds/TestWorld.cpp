@@ -13,6 +13,7 @@
 #include <Bee/Graphics/Renderer.hpp>
 #include <Bee/World/World.hpp>
 
+#include "Globals.hpp"
 #include "Entities/Player.hpp"
 #include "Entities/TestEntity.hpp"
 #include "Entities/Teleporter.hpp"
@@ -94,11 +95,11 @@ void TestWorld::update()
 
     if (Keyboard::isKeyDown(Key::a1))
     {
-        viewportScale += 0.5f * Bee::getDeltaTime();
+        Global::viewportScale += 0.5f * Bee::getDeltaTime();
     }
     else if (Keyboard::isKeyDown(Key::a2))
     {
-        viewportScale -= 0.5f * Bee::getDeltaTime();
+        Global::viewportScale -= 0.5f * Bee::getDeltaTime();
     }
 
     if (Bee::getTime() > lastHUDUpdateTime + 200)
@@ -121,7 +122,7 @@ void TestWorld::update()
         frameTimeHUD->setPosition(Renderer::getScreenSize().x - frameTimeHUD->getSize().x, 0);
     }
 
-    Renderer::setViewportSize(16 * viewportScale, 9 * viewportScale);
+    Renderer::setViewportSize(16 * Global::viewportScale, 9 * Global::viewportScale);
 }
 
 TestWorld::~TestWorld()

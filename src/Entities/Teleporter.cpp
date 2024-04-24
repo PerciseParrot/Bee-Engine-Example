@@ -24,13 +24,13 @@ void Teleporter::update()
 
         if (Mouse::isButtonPressed(MouseButton::left))
         {
-            if (Bee::getCurrentWorld() == Globals::farm)
+            if (Bee::getCurrentWorld() == Global::farm)
             {
-                Bee::setWorld(Globals::testWorld);
+                Bee::setWorld(Global::testWorld);
             }
-            else if (Bee::getCurrentWorld() == Globals::testWorld)
+            else if (Bee::getCurrentWorld() == Global::testWorld)
             {
-                Bee::setWorld(Globals::farm);
+                Bee::setWorld(Global::farm);
             }
         }
     }

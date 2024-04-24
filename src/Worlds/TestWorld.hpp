@@ -18,7 +18,6 @@ public:
     virtual ~TestWorld();
 
 private:
-    float viewportScale = 1.0f;
     uint32_t lastHUDUpdateTime = 0;
     Teleporter* teleporter;
     Player* player;
