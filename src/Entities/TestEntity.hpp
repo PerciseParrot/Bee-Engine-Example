@@ -1,10 +1,7 @@
 #pragma once
 
-#include "Bee/Entity.hpp"
-
-#include <string>
-
-#include "Bee/Math/Vector2f.hpp"
+#include <Bee/Entity.hpp>
+#include <Bee/Math/Vector2f.hpp>
 
 class TestEntity : public Entity
 {

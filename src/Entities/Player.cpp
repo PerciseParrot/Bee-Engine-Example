@@ -1,18 +1,15 @@
 #include "Player.hpp"
 
-#include <cmath>
-#include <iostream>
+#include <Bee/Bee.hpp>
+#include <Bee/Log.hpp>
+#include <Bee/Input/Controller.hpp>
+#include <Bee/Input/Keyboard.hpp>
 
-#include "Bee/Bee.hpp"
-#include "Bee/Log.hpp"
-#include "Bee/Input/Controller.hpp"
-#include "Bee/Input/Keyboard.hpp"
-
-Player::Player()
+Player::Player(float x, float y)
 {
     setSprite("Link");
     setName("Player");
-    setPosition(14.5f, 1.5f);
+    setPosition(x, y);
     setHitboxScale(0.75f, 0.75f);
 }
 

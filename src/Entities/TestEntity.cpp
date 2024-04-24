@@ -1,7 +1,7 @@
 #include "TestEntity.hpp"
 
-#include "Bee/Bee.hpp"
-#include "Bee/Math/Vector2f.hpp"
+#include <Bee/Bee.hpp>
+#include <Bee/Math/Vector2f.hpp>
 
 TestEntity::TestEntity(float x, float y, float rotation)
 {

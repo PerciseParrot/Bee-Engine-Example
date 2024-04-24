@@ -10,11 +10,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/${CMAKE_PROJECT_NAM
 file(COPY assets DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 add_executable(${PROJECT_NAME}
+    src/Globals.cpp
     src/main.cpp
-    src/Player.cpp
-    src/TestEntity.cpp
-    src/TestWorld.cpp
-    src/TextEntity.cpp
+    src/Entities/Player.cpp
+    src/Entities/Teleporter.cpp
+    src/Entities/TestEntity.cpp
+    src/Worlds/Farm.cpp
+    src/Worlds/TestWorld.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)

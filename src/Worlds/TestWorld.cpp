@@ -2,22 +2,20 @@
 
 #include <iostream>
 
-#include "Bee/Audio.hpp"
-#include "Bee/Bee.hpp"
-#include "Bee/Entity.hpp"
-#include "Bee/Log.hpp"
-#include "Bee/Input/Controller.hpp"
-#include "Bee/Input/Keyboard.hpp"
-#include "Bee/Input/Mouse.hpp"
-#include "Bee/Graphics/HUDObject.hpp"
-#include "Bee/Graphics/Renderer.hpp"
-#include "Bee/World/World.hpp"
+#include <Bee/Audio.hpp>
+#include <Bee/Bee.hpp>
+#include <Bee/Entity.hpp>
+#include <Bee/Log.hpp>
+#include <Bee/Input/Controller.hpp>
+#include <Bee/Input/Keyboard.hpp>
+#include <Bee/Input/Mouse.hpp>
+#include <Bee/Graphics/HUDObject.hpp>
+#include <Bee/Graphics/Renderer.hpp>
+#include <Bee/World/World.hpp>
 
-#include "Player.hpp"
-#include "TestEntity.hpp"
-#include "TextEntity.hpp"
-
-#include <cmath>
+#include "Entities/Player.hpp"
+#include "Entities/TestEntity.hpp"
+#include "Entities/Teleporter.hpp"
 
 TestWorld::TestWorld()
 {
@@ -32,16 +30,10 @@ void TestWorld::init()
     addEntity(new TestEntity(14.5f, 11.0f, 0));
     addEntity(new TestEntity(14.5f, 12.5f, 0));
     addEntity(new TestEntity(16.5f, 12.5f, 45));
-    addEntity(player = new Player);
+    addEntity(player = new Player(14.5f, 1.5f));
 
-    addEntity(textEntity = new TextEntity);
-    textEntity->setName("Text Entity");
-    textEntity->setFont("DTM_Mono", 200);
-    textEntity->setPosition(14.5f, 16.0f);
-    textEntity->setText("Text\nEntity", 255, 255, 255, 255);
-    textEntity->setScale(2);
-    textEntity->setHitboxScale(2);
-
+    addEntity(teleporter = new Teleporter(14.f, 17.5f));
+    
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
 
@@ -62,15 +54,7 @@ void TestWorld::init()
 
 void TestWorld::onLoad()
 {
-    Audio::loadSound("boom");
-    Audio::loadSound("test");
     Audio::playSound("test");
-    //Audio::loadMusic("muscle");
-    //Audio::playMusic("muscle", 0);
-    for (Entity* entity : getAllEntities())
-    {
-        Log::write("%s: %p", entity->getName().c_str(), entity);
-    }
 }
 
 void TestWorld::onUnload()

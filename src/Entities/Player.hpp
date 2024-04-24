@@ -1,13 +1,11 @@
 #pragma once
 
-#include "Bee/Entity.hpp"
-
-#include <string>
+#include <Bee/Entity.hpp>
 
 class Player : public Entity
 {
 public:
-    Player();
+    Player(float x, float y);
     virtual void update();
     virtual ~Player();
 
