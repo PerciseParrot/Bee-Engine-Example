@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Bee/World/World.hpp>
+#include <Bee/Bee.hpp>
 
 #include "Entities/Player.hpp"
 #include "Entities/Teleporter.hpp"

@@ -1,8 +1,6 @@
 #include "Farm.hpp"
 
 #include <Bee/Bee.hpp>
-#include <Bee/Graphics/Renderer.hpp>
-#include <Bee/Input/Keyboard.hpp>
 
 #include "Globals.hpp"
 

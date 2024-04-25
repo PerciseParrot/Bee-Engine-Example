@@ -1,7 +1,4 @@
-#include <iostream>
-
 #include <Bee/Bee.hpp>
-#include <Bee/Graphics/Renderer.hpp>
 
 #include "Globals.hpp"
 #include "Worlds/Farm.hpp"
@@ -14,6 +11,7 @@ void init()
     Global::farm = new Farm;
     Global::testWorld = new TestWorld;
     Bee::setWorld(Global::testWorld);
+    Mouse::createCustomCursor("./assets/Crosshair.bmp", 25, 25);
 }
 
 int main()

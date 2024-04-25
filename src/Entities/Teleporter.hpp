@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Bee/Entity.hpp>
+#include <Bee/Bee.hpp>
 
 class Teleporter : public Entity
 {

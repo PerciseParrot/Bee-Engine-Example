@@ -1,17 +1,6 @@
 #include "TestWorld.hpp"
 
-#include <iostream>
-
-#include <Bee/Audio.hpp>
 #include <Bee/Bee.hpp>
-#include <Bee/Entity.hpp>
-#include <Bee/Log.hpp>
-#include <Bee/Input/Controller.hpp>
-#include <Bee/Input/Keyboard.hpp>
-#include <Bee/Input/Mouse.hpp>
-#include <Bee/Graphics/HUDObject.hpp>
-#include <Bee/Graphics/Renderer.hpp>
-#include <Bee/World/World.hpp>
 
 #include "Globals.hpp"
 #include "Entities/Player.hpp"

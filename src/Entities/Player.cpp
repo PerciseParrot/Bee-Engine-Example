@@ -1,9 +1,6 @@
 #include "Player.hpp"
 
 #include <Bee/Bee.hpp>
-#include <Bee/Log.hpp>
-#include <Bee/Input/Controller.hpp>
-#include <Bee/Input/Keyboard.hpp>
 
 Player::Player(float x, float y)
 {

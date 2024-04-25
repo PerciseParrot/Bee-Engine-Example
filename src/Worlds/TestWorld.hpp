@@ -1,8 +1,6 @@
 #pragma once
 
-#include <Bee/Entity.hpp>
-#include <Bee/Graphics/HUDObject.hpp>
-#include <Bee/World/World.hpp>
+#include <Bee/Bee.hpp>
 
 #include "Entities/Player.hpp"
 #include "Entities/Teleporter.hpp"

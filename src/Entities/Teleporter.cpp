@@ -1,7 +1,6 @@
 #include "Teleporter.hpp"
 
 #include <Bee/Bee.hpp>
-#include <Bee/Input/Mouse.hpp>
 
 #include "Globals.hpp"
 
