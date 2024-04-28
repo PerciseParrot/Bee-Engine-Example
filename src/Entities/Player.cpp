@@ -4,10 +4,11 @@
 
 Player::Player(float x, float y)
 {
-    setSprite("Link");
+    setSprite("alttp-link");
     setName("Player");
     setPosition(x, y);
     setHitboxScale(0.75f, 0.75f);
+    setScale(1.5f);
 }
 
 void Player::update()
@@ -37,7 +38,15 @@ void Player::update()
         currentAnimation = "walking_left";
     }
 
+    if (Keyboard::isKeyDown(Key::space))
+    {
+        currentAnimation = "drinking";
+    }
+
     velocity.normalize();
+
+    if (Keyboard::isKeyDown(Key::leftShift))
+        velocity *= 1.5f;
 
     Vector2f stick = Controller::getLeftStick();
 
