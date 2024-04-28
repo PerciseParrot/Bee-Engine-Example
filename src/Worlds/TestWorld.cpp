@@ -22,7 +22,7 @@ void TestWorld::init()
     addEntity(new TestEntity(16.5f, 12.5f, 45));
     addEntity(player = new Player(14.5f, 1.5f));
 
-    addEntity(teleporter = new Teleporter(14.f, 17.5f));
+    addEntity(teleporter = new Teleporter(14.5f, 17.5f));
     
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
@@ -80,6 +80,12 @@ void TestWorld::update()
     if (Keyboard::isKeyPressed(Key::escape))
     {
         Bee::stop();
+    }
+
+    if (Keyboard::isKeyPressed(Key::f4))
+    {
+        Global::fullscreen = !Global::fullscreen;
+        Renderer::setFullscreen(Global::fullscreen);
     }
 
     if (Keyboard::isKeyDown(Key::a1))

@@ -35,6 +35,12 @@ void Farm::update()
         Global::viewportScale -= 0.5f * Bee::getDeltaTime();
     }
 
+    if (Keyboard::isKeyPressed(Key::f4))
+    {
+        Global::fullscreen = !Global::fullscreen;
+        Renderer::setFullscreen(Global::fullscreen);
+    }
+
     Renderer::setViewportSize(16 * Global::viewportScale, 9 * Global::viewportScale);
 }
 
