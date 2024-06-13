@@ -6,5 +6,5 @@ class TestEntity : public Entity
 {
 public:
     TestEntity(float x, float y, float rotation);
-    virtual void update();
+    void update() override;
 };

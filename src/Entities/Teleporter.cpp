@@ -4,7 +4,7 @@
 
 #include "Globals.hpp"
 
-Teleporter::Teleporter(float x, float y)
+Teleporter::Teleporter(const float x, const float y)
 {
     setName("Teleporter");
     setFont("DTM_Mono", 200);

@@ -9,11 +9,6 @@
 
 TestWorld::TestWorld()
 {
-
-}
-
-void TestWorld::init()
-{
     loadTilemap("Farm");
     addEntity(new TestEntity(14.5f, 8.0f, 0));
     addEntity(new TestEntity(14.5f, 9.5f, 0));
@@ -23,7 +18,7 @@ void TestWorld::init()
     addEntity(player = new Player(14.5f, 1.5f));
 
     addEntity(teleporter = new Teleporter(14.5f, 17.5f));
-    
+
     addHUDObject(frameTimeHUD = new HUDObject);
     frameTimeHUD->setFont("DTM_Mono", 50);
 
@@ -54,25 +49,25 @@ void TestWorld::onUnload()
 
 void TestWorld::update()
 {
-    Vector2f playerPosition = player->getPosition();
+    const Vector2f playerPosition = player->getPosition();
     Renderer::setCameraPosition(playerPosition);
 
-    if (Keyboard::isKeyPressed(Key::b) || (Controller::isButtonPressed(ControllerButton::left) && Controller::isButtonDown(ControllerButton::start)))
+    if (Keyboard::isKeyPressed(Key::b) || (Controller::isButtonPressed(0, ControllerButton::left) && Controller::isButtonDown(0, ControllerButton::start)))
     {
         loadTilemap("Farm");
     }
 
-    if (Keyboard::isKeyPressed(Key::n) || (Controller::isButtonPressed(ControllerButton::up) && Controller::isButtonDown(ControllerButton::start)))
+    if (Keyboard::isKeyPressed(Key::n) || (Controller::isButtonPressed(0, ControllerButton::up) && Controller::isButtonDown(0, ControllerButton::start)))
     {
         loadTilemap("Large");
     }
 
-    if (Keyboard::isKeyPressed(Key::m) || (Controller::isButtonPressed(ControllerButton::right) && Controller::isButtonDown(ControllerButton::start)))
+    if (Keyboard::isKeyPressed(Key::m) || (Controller::isButtonPressed(0, ControllerButton::right) && Controller::isButtonDown(0, ControllerButton::start)))
     {
         loadTilemap("TestWorld");
     }
 
-    if (Keyboard::isKeyPressed(Key::space) || Controller::isButtonPressed(ControllerButton::a))
+    if (Keyboard::isKeyPressed(Key::space) || Controller::isButtonPressed(0, ControllerButton::a))
     {
         Audio::playSound("boom");
     }
@@ -99,7 +94,7 @@ void TestWorld::update()
 
     if (Bee::getTime() > lastHUDUpdateTime + 200)
     {
-        Vector2f mousePos = Mouse::getMouseWorldPosition();
+        const Vector2f mousePos = Mouse::getMouseWorldPosition();
         lastHUDUpdateTime = Bee::getTime();
 
         xPosHUD->setText("X: " + std::to_string(playerPosition.x), 255, 255, 255, 255);

@@ -8,13 +8,13 @@
 class Farm : public World
 {
 public:
-    virtual void init();
-    virtual void onLoad();
-    virtual void onUnload();
-    virtual void update();
-    virtual ~Farm();
+    Farm();
+    void onLoad() override;
+    void onUnload() override;
+    void update() override;
+    ~Farm() override;
 
 private:
-    Player* player;
-    Teleporter* teleporter;
+    Player* player{};
+    Teleporter* teleporter{};
 };

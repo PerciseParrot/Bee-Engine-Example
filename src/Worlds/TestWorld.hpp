@@ -9,11 +9,10 @@ class TestWorld : public World
 {
 public:
     TestWorld();
-    virtual void init();
-    virtual void onLoad();
-    virtual void onUnload();
-    virtual void update();
-    virtual ~TestWorld();
+    void onLoad() override;
+    void onUnload() override;
+    void update() override;
+    ~TestWorld() override;
 
 private:
     uint32_t lastHUDUpdateTime = 0;

@@ -4,7 +4,7 @@
 
 #include "Globals.hpp"
 
-void Farm::init()
+Farm::Farm()
 {
     loadTilemap("Stardew");
     addEntity(player = new Player(14.5f, 20.0f));
@@ -23,7 +23,7 @@ void Farm::onUnload()
 
 void Farm::update()
 {
-    Vector2f playerPosition = player->getPosition();
+    const Vector2f playerPosition = player->getPosition();
     Renderer::setCameraPosition(playerPosition);
 
     if (Keyboard::isKeyDown(Key::a1))

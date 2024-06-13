@@ -6,8 +6,7 @@ class Player : public Entity
 {
 public:
     Player(float x, float y);
-    virtual void update();
-    virtual ~Player();
+    void update() override;
 
 private:
     std::string currentAnimation;

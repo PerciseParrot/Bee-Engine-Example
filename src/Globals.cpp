@@ -6,4 +6,4 @@ namespace Global
     World* testWorld = nullptr;
     bool fullscreen = false;
     float viewportScale = 1.5f;
-};
+}

@@ -2,7 +2,7 @@
 
 #include <Bee/Bee.hpp>
 
-TestEntity::TestEntity(float x, float y, float rotation)
+TestEntity::TestEntity(const float x, const float y, const float rotation)
 {
     setPosition(x, y);
     setRotation(rotation);
@@ -14,8 +14,15 @@ TestEntity::TestEntity(float x, float y, float rotation)
 
 void TestEntity::update()
 {
-    for (Intersection i : getIntersections())
+    for (const Intersection& i : getIntersections())
     {
+        // if (i.entity)
+        // {
+        //     if (i.entity->getName() == "Player")
+        //     {
+        //         break;
+        //     }
+        // }
         moveOffset(i.mtv);
     }
 }

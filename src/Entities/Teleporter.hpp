@@ -6,7 +6,7 @@ class Teleporter : public Entity
 {
 public:
     Teleporter(float x, float y);
-    virtual void update();
+    void update() override;
 
 private:
 };
