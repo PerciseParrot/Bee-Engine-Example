@@ -16,13 +16,6 @@ void TestEntity::update()
 {
     for (const Intersection& i : getIntersections())
     {
-        // if (i.entity)
-        // {
-        //     if (i.entity->getName() == "Player")
-        //     {
-        //         break;
-        //     }
-        // }
         moveOffset(i.mtv);
     }
 }
